@@ -1,6 +1,6 @@
 <?php
 
-namespace videogameBundle\DependencyInjection;
+namespace linok\videogameBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -31,6 +31,6 @@ class DaProtoExtension extends Extension
      */
     public function getAlias()
     {
-        return 'da_proto';
+        return 'videogame';
     }
 }
