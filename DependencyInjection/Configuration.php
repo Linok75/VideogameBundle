@@ -1,6 +1,6 @@
 <?php
 
-namespace videogameBundle\DependencyInjection;
+namespace linok\videogameBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
