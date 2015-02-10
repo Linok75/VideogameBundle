@@ -1,6 +1,6 @@
 <?php
 
-namespace VideogameBundle;
+namespace videogameBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Da\ProtoBundle\DependencyInjection\DaProtoExtension;
