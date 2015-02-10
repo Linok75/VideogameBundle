@@ -1,0 +1,3 @@
+linok_videogame:
+    type: rest
+    resource: @LinokVideoGameBundle/Controller/VideogameController
