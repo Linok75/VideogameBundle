@@ -1,5 +1,5 @@
 {
-    "name": "videogamebundle",
+    "name": "linok/videogamebundle",
     "type": "symfony-bundle",
     "description": "This is a prototype bundle",
     "keywords": ["prototype", "bundle", "da"],
@@ -31,6 +31,4 @@
     "autoload": {
         "psr-0": { "videogame": "" }
     },
-    "minimum-stability": "dev",
-    "target-dir": "videogameBundle"
 }
