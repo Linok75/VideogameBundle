@@ -1,0 +1,21 @@
+Linok\VideogameBundle\Entity\Videogame:
+    type: entity
+    table: null
+    repositoryClass: Linok\VideogameBundle\Entity\VideogameRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        releaseDate:
+            type: date
+        metascore:
+            type: smallint
+        review:
+            type: text
+    lifecycleCallbacks: {  }
