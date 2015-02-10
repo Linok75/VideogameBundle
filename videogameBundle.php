@@ -1,14 +1,14 @@
 <?php
 
-namespace videogameBundle;
+namespace linok\videogameBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Da\ProtoBundle\DependencyInjection\DaProtoExtension;
+use linok\videogameBundle\DependencyInjection\videogameExtension;
 
-class DaProtoBundle extends Bundle
+class videogameBundle extends Bundle
 {
     public function __construct()
     {
-        $this->extension = new DaProtoExtension();
+        $this->extension = new videogameExtension();
     }
 }
