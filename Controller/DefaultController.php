@@ -1,6 +1,6 @@
 <?php
 
-namespace linok\videogameBundle\Controller;
+namespace Linok\VideogameBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
