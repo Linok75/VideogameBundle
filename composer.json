@@ -31,6 +31,5 @@
     "autoload": {
         "psr-0": { "Linok\\VideogameBundle": "" }
     },
-    "minimum-stability": "dev",
-    "target-dir": "Linok/VideogameBundle"
+    "minimum-stability": "dev"
 }
