@@ -1,9 +1,9 @@
 {
-    "name": "linok/videogamebundle",
+    "name": "videogamebundle",
     "type": "symfony-bundle",
     "description": "This is a prototype bundle",
     "keywords": ["prototype", "bundle", "da"],
-    "homepage": "https://github.com/Linok75/VideogameBundle.git",
+    "homepage": "https://github.com/Linok75/videogamebundle.git",
     "license": "MIT",
     "authors": [
         {
