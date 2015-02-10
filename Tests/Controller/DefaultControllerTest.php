@@ -1,6 +1,6 @@
 <?php
 
-namespace videogameBundle\Tests\Controller;
+namespace linok\videogameBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
