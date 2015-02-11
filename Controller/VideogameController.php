@@ -6,10 +6,18 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Linok\VideogameBundle\Entity\Videogame;
+use FOS\RestBundle\Request\ParamFetcherInterface;
 
 class VideogameController extends FOSRestController
 {
     private $handler = 'linok_videogame.Videogamehandler';
+
+    public function getVideogamesAction(Request $request)
+    {   
+        $videogames=$this->container->get($this->handler)->all();
+        
+        return new Response(var_dump($videogames));
+    }
     
     public function getVideogameAction($id)
     {

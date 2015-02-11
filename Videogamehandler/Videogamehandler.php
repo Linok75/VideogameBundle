@@ -4,16 +4,22 @@ namespace Linok\VideogameBundle\Videogamehandler;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Linok\VideogameBundle\Entity\Videogame;
+use Linok\VideogameBundle\Event\Videogame\FilterdeleteEvent;
+use Linok\VideogameBundle\Event\Videogame\FilterpostEvent;
+use Linok\VideogameBundle\Event\Videogame\FilterputEvent;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class Videogamehandler
 {
     private $om;
     private $repo;
+    private $dispatcher;
     
     public function __construct(ObjectManager $om, $className)
     {
         $this->om = $om;
         $this->repo = $this->om->getRepository($className);
+        $this->dispatcher = new EventDispatcher();
     }
     
     /**
@@ -35,6 +41,8 @@ class Videogamehandler
         $this->om->persist($game);
         $this->om->flush();
         
+        $this->dispatcher->dispatch(new FilterpostEvent());
+        
         return true;
     }
     
@@ -50,6 +58,8 @@ class Videogamehandler
         
         $this->om->flush();
         
+        $this->dispatcher->dispatch(new FilterputEvent());
+        
         return true;
     }
     
@@ -60,12 +70,19 @@ class Videogamehandler
         return $game;
     }
     
+    public function all()
+    {
+        return $this->repo->findAll();
+    }
+    
     public function delete($id)
     {
         $game = $this->repo->find($id);
         
         $this->om->remove($game);
         $this->om->flush();
+        
+        $this->dispatcher->dispatch(new FilterdeleteEvent());
         
         return true;
     }
