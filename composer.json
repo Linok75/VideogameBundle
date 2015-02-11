@@ -29,8 +29,7 @@
         "jms/serializer-bundle": "0.13.0"
     },
     "autoload": {
-        "psr-0": { "Linok\\VideogameBundle": "" }
+        "psr-4": { "Linok\\VideogameBundle\\": "" }
     },
-    "minimum-stability": "dev",
-    "target-dir": "Linok/VideogameBundle"
+    "minimum-stability": "dev"
 }
