@@ -9,7 +9,7 @@ Linok\VideogameBundle\Entity\Videogame:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        title:
             type: string
             length: 255
         releaseDate:

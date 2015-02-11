@@ -2,8 +2,8 @@
 
 namespace Linok\VideogameBundle\Videogamehandler;
 
-use Linok\VideogameBundle\Entity\Videogame;
 use Doctrine\Common\Persistence\ObjectManager;
+use Linok\VideogameBundle\Entity\Videogame;
 
 class Videogamehandler
 {
@@ -24,10 +24,11 @@ class Videogamehandler
      */
     public function post(array $values)
     {
-        $game = new VideoGame();
+        $game = new Videogame();
+        $date = new \DateTime($values['releaseDate']);
         
-        $game->setName($values['name']);
-        $game->setReleaseDate($values['releaseDate']);
+        $game->setTitle($values['title']);
+        $game->setReleaseDate($date);
         $game->setMetascore($values['metascore']);
         $game->setReview($values['review']);
         
@@ -37,12 +38,13 @@ class Videogamehandler
         return true;
     }
     
-    public function put(array $values)
+    public function put(array $values, $id)
     {
-        $game = $this->repo->find($values['id']);
+        $game = $this->repo->find($id);
+        $date = new \DateTime($values['releaseDate']);
         
-        $game->setName($values['name']);
-        $game->setReleaseDate($values['releaseDate']);
+        $game->setTitle($values['title']);
+        $game->setReleaseDate($date);
         $game->setMetascore($values['metascore']);
         $game->setReview($values['review']);
         

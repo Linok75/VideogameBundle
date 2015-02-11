@@ -5,7 +5,7 @@ namespace Linok\VideogameBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * VideoGame
+ * Videogame
  */
 class Videogame
 {
@@ -17,7 +17,7 @@ class Videogame
     /**
      * @var string
      */
-    private $name;
+    private $title;
 
     /**
      * @var \DateTime
@@ -46,33 +46,33 @@ class Videogame
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
-     * @return VideoGame
+     * @param string $title
+     * @return Videogame
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string 
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
      * Set releaseDate
      *
      * @param \DateTime $releaseDate
-     * @return VideoGame
+     * @return Videogame
      */
     public function setReleaseDate($releaseDate)
     {
@@ -95,7 +95,7 @@ class Videogame
      * Set metascore
      *
      * @param integer $metascore
-     * @return VideoGame
+     * @return Videogame
      */
     public function setMetascore($metascore)
     {
@@ -118,7 +118,7 @@ class Videogame
      * Set review
      *
      * @param string $review
-     * @return VideoGame
+     * @return Videogame
      */
     public function setReview($review)
     {
