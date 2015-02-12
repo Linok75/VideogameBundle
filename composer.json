@@ -13,8 +13,8 @@
     ],
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/Tessi-Tms/TmsRestBundle.git"
+        "type": "vcs",
+        "url": "https://github.com/Tessi-Tms/TmsRestBundle.git"
         }
     ],
     "require": {
