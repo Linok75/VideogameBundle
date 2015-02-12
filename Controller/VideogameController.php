@@ -5,8 +5,11 @@ namespace Linok\VideogameBundle\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\Controller\Annotations\QueryParam;
+use FOS\RestBundle\Controller\Annotations\RequestParam;
 use Linok\VideogameBundle\Entity\Videogame;
 use FOS\RestBundle\Request\ParamFetcherInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Entry point of the web service
@@ -27,15 +30,46 @@ class VideogameController extends FOSRestController
 
     /**
      * call the handler to return all videogames in db
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @return \Symfony\Component\HttpFoundation\Response $ans
+     * @param string $id
      */
-    public function getVideogamesAction(Request $request)
-    {   
+    public function getVideogamesAction(String $id)
+    {  
+        /*
         $videogames=$this->container->get($this->handler)->all();
         $ans = $this->container->get('serializer')->serialize($videogames, $this->responseFormat);
+        */
         
-        return new Response($ans);
+        try{
+            $this->view(
+                $this->get('tms_rest.formatter.factory')
+                ->create('item', 
+                $this->getRequest()->get('__route'),
+                $this->getRequest()->getRequestFormat(),
+                $id
+                )->setObjectManager(
+                    $this->get('doctrine.orm.entity_manager'),
+                    $this->container->getParameter('classname')
+                )
+                ->addActionsController('VideogameBundle:Videogame')
+                ->format(),
+                Codes::HTTP_OK
+                );
+            
+            $serializationContext = SerializationContext::create()
+                ->setGroups(array(
+                    AbstractHypermediaFormatter::SERIALIZER_CONTEXT_GROUP_ITEM
+                ))
+            ;
+            $view->setSerializationContext($serializationContext);
+            
+            return $this->handleView($view);
+                
+        } catch (NotFoundHttpException $ex) {
+            return $this->handleView($this->view(
+                array(),
+                $e->getStatusCode()
+            ));
+        }
     }
     
     /**
