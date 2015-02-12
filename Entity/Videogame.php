@@ -3,34 +3,61 @@
 namespace Linok\VideogameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Hateoas\Configuration\Annotation as Hateoas;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Videogame
+ * 
+ * @Serializer\XmlRoot("videogame")
+ * 
+ * @Hateoas\Relation(
+ *      "self",
+ *      href = @Hateoas\Route(
+ *          "get_videogame",
+ *          parameters = { "id" = "expr(object.getId())" }
+ *      )
+ * )
+ * @Hateoas\Relation(
+ *      "delete",
+ *      href = @Hateoas\Route(
+ *          "delete_videogame",
+ *          parameters = { "id" = "expr(object.getId())" }
+ *      )
+ * )
+ * @Hateoas\Relation(
+ *      "put",
+ *      href = @Hateoas\Route(
+ *          "put_videogame",
+ *          parameters = { "id" = "expr(object.getId())" }
+ *      )
+ * )
  */
 class Videogame
 {
     /**
-     * @var integer
+     * @Serializer\Type("integer")
+     * @Serializer\XmlAttribute
      */
     private $id;
 
     /**
-     * @var string
+     * @Serializer\Type("string")
      */
     private $title;
 
     /**
-     * @var \DateTime
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      */
     private $releaseDate;
 
     /**
-     * @var integer
+     * @Serializer\Type("integer")
      */
     private $metascore;
 
     /**
-     * @var string
+     * @Serializer\Type("string")
      */
     private $review;
 

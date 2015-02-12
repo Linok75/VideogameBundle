@@ -9,12 +9,32 @@ use Linok\VideogameBundle\Event\Videogame\FilterpostEvent;
 use Linok\VideogameBundle\Event\Videogame\FilterputEvent;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
+/**
+ * Manage the Videogame entity
+ */
 class Videogamehandler
 {
+    /**
+     * The object manager of doctrine
+     * @var ObjectManager $om
+     */
     private $om;
+    /**
+     * Repository who will be manage
+     * @var VideogameRepository $repo 
+     */
     private $repo;
+    /**
+     * Dispatch the event after operation in base (except get)
+     * @var EventDispatcher $dispatcher
+     */
     private $dispatcher;
     
+    /**
+     * Init object attribute
+     * @param \Doctrine\Common\Persistence\ObjectManager $om
+     * @param string $className
+     */
     public function __construct(ObjectManager $om, $className)
     {
         $this->om = $om;
@@ -23,10 +43,8 @@ class Videogamehandler
     }
     
     /**
-     * Add a video game.
-     * 
+     * insert a videogame in db
      * @param array $values
-     * @return boolean
      */
     public function post(array $values)
     {
@@ -42,10 +60,13 @@ class Videogamehandler
         $this->om->flush();
         
         $this->dispatcher->dispatch(new FilterpostEvent());
-        
-        return true;
     }
     
+    /**
+     * fully-update a video game in db with this id
+     * @param array $values
+     * @param integer $id
+     */
     public function put(array $values, $id)
     {
         $game = $this->repo->find($id);
@@ -59,10 +80,13 @@ class Videogamehandler
         $this->om->flush();
         
         $this->dispatcher->dispatch(new FilterputEvent());
-        
-        return true;
     }
     
+    /**
+     * return the videogame entity with this id
+     * @param integer $id
+     * @return Videogame $game
+     */
     public function get($id)
     {
         $game = $this->repo->find($id);
@@ -70,11 +94,21 @@ class Videogamehandler
         return $game;
     }
     
+    /**
+     * return all videogames in db
+     * @return type
+     */
     public function all()
     {
-        return $this->repo->findAll();
+        $games = $this->repo->findAll();
+        
+        return $games;
     }
     
+    /**
+     * delete the videogame with this id
+     * @param integer $id
+     */
     public function delete($id)
     {
         $game = $this->repo->find($id);
@@ -83,7 +117,5 @@ class Videogamehandler
         $this->om->flush();
         
         $this->dispatcher->dispatch(new FilterdeleteEvent());
-        
-        return true;
     }
 }
