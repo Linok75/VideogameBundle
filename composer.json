@@ -34,10 +34,9 @@
         "friendsofsymfony/rest-bundle": "~1.5",
         "jms/serializer-bundle": "0.13.0",
         "willdurand/hateoas-bundle": "0.4.*",
-        "tms/rest-bundle": "1.*"
+        "tms/rest-bundle": "1.2.3"
     },
     "autoload": {
         "psr-4": { "Linok\\VideogameBundle\\": "" }
-    },
-    "minimum-stability": "dev"
+    }
 }
