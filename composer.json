@@ -31,10 +31,10 @@
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "friendsofsymfony/rest-bundle": "dev-master",
-        "jms/serializer-bundle": "dev-master",
+        "friendsofsymfony/rest-bundle": "dev-master@dev",
+        "jms/serializer-bundle": "dev-master@dev",
         "willdurand/hateoas-bundle": "0.4.*",
-        "tms/rest-bundle": "dev-master"
+        "tms/rest-bundle": "dev-master@dev"
     },
     "autoload": {
         "psr-4": { "Linok\\VideogameBundle\\": "" }
