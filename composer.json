@@ -33,7 +33,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/rest-bundle": "~1.5",
         "jms/serializer-bundle": "0.13.0",
-        "willdurand/hateoas-bundle": "0.4.*"
+        "willdurand/hateoas-bundle": "0.4.*",
+        "tms/rest-bundle": "dev-master"
     },
     "autoload": {
         "psr-4": { "Linok\\VideogameBundle\\": "" }
