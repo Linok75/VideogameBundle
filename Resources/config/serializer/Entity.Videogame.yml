@@ -1,0 +1,24 @@
+# Linok\VideogameBundle\Resources\config\serializer\Entity.Videogame.yml
+Linok\VideogameBundle\Entity\Videogame:
+    exclusion_policy: ALL
+    
+    properties:
+        id:
+            expose: true
+            groups: [tms_rest.collection, tms_rest.item]
+
+        title:
+            expose: true
+            groups: [tms_rest.collection, tms_rest.item]
+            
+        releaseDate:
+            expose: true
+            groups: [tms_rest.item]
+            
+        metascore:
+            expose: true
+            groups: [tms_rest.item]
+            
+        review:
+            expose: true
+            groups: [tms_rest.item]

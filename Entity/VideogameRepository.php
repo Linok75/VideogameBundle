@@ -12,4 +12,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class VideogameRepository extends EntityRepository
 {
+    public function findOneBy(array $criteria, array $orderBy = null)
+    {
+        $game = parent::findOneBy($criteria, $orderBy);
+        
+        return $game;
+    }
 }

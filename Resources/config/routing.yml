@@ -1,3 +1,3 @@
 videogame:
     type: rest
-    resource: "Linok\VideogameBundle\Controller\VideogameController"
+    resource: Linok\VideogameBundle\Controller\VideogameController

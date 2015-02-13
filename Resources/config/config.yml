@@ -1,0 +1,3 @@
+linok_videogame:
+    entity_handlers:
+        videogame: Linok\Videogame\Entity\Videogame

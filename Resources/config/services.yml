@@ -1,7 +1,7 @@
 parameters:
-    classname: VideogameBundle:Videogame
+    linok_videogame.entity.videogame.class: VideogameBundle:Videogame
 
 services:
-    linok_videogame.Videogamehandler:
+    linok_videogame.videogame_handler:
         class: Linok\VideogameBundle\Videogamehandler\Videogamehandler
-        arguments: [@doctrine.orm.entity_manager, %classname%]
+        arguments: [@doctrine.orm.entity_manager, %linok_videogame.entity.videogame.class%]
